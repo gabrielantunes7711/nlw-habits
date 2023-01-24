@@ -71,6 +71,8 @@ button {
   gap: 2.4rem;
 }
 .day div {
+  display: flex;
+  flex-direction: column;
   margin-bottom: 0.8rem;
   font-family: "Roboto Mono";
   font-size: 2rem;
