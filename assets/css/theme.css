@@ -80,7 +80,9 @@ button {
   color: #a1a1aa;
   text-align: center;
 }
-
+.day div span {
+  font-size: 1.7rem;
+}
 input {
   appearance: none;
   -webkit-appearance: none;
