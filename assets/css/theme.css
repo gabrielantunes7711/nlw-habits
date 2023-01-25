@@ -68,6 +68,7 @@ button {
 .day {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 2.4rem;
 }
 .day div {
@@ -99,5 +100,14 @@ input:checked {
 @media (max-width: 575px) {
   button div {
     display: none;
+  }
+}
+@media (max-width: 400px) {
+  header {
+    flex-direction: column;
+    gap: 4rem;
+  }
+  #form-habits {
+    padding-top: 22rem;
   }
 }
