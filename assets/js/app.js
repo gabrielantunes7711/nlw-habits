@@ -1,9 +1,8 @@
 const form = document.querySelector("form");
 const nlwSetup = new NLWSetup(form);
+const addDay = document.querySelector("header button");
 
-const button = document.querySelector("header button");
-
-button.addEventListener("click", add);
+addDay.addEventListener("click", add);
 form.addEventListener("change", save);
 
 function add() {
@@ -34,6 +33,15 @@ function getDayOfWeek(date) {
       ];
 }
 
+const data = JSON.parse(localStorage.getItem("NLWSetup@habits")) || {};
+
+nlwSetup.setData(data);
+
+nlwSetup.load();
+
+putWeekday();
+
+// Includes Weekday on Date
 function putWeekday() {
   const allAddedDays = document.querySelectorAll(".day div");
 
@@ -49,17 +57,7 @@ function putWeekday() {
   }
 }
 
-nlwSetup.addDay("26/02/2023");
-nlwSetup.addDay("27/02/2023");
-
-const data = JSON.parse(localStorage.getItem("NLWSetup@habits")) || {};
-
-nlwSetup.setData(data);
-
-nlwSetup.load();
-
-putWeekday();
-
+// Toggle Select
 function toggleSelect(button) {
   button.addEventListener("click", () => {
     const containerOptions = button.nextElementSibling;
@@ -84,10 +82,11 @@ function toggleSelect(button) {
   });
 }
 
+// Toggle Month Select
 const selectMonthBtn = document.getElementById("selectMonth");
-
 toggleSelect(selectMonthBtn);
 
+// Filter Month
 const allMonths = document.querySelectorAll(".container-month span");
 
 for (const month of allMonths) {
@@ -104,14 +103,3 @@ for (const month of allMonths) {
     }
   });
 }
-
-// document.addEventListener("click", () => {
-//   const allAddedDays = document.querySelectorAll(".day div");
-
-//   for (const day of allAddedDays) {
-//     if (!day.innerText.slice(2, 5).includes("/02")) {
-//       day.parentNode.style.display = "none";
-//     }
-//     console.log(day.innerText.slice(2, 5));
-//   }
-// });
