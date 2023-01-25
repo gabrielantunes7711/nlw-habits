@@ -38,8 +38,6 @@ function save() {
 function putWeekday() {
   const allAddedDay = document.querySelectorAll(".day div");
 
-  console.log(allAddedDay);
-
   if (allAddedDay != []) {
     for (const addedDay of allAddedDay) {
       addedDay.innerHTML += `<span>${currentWeekday}</span>`;
